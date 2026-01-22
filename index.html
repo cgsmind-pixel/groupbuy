@@ -1,45 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta property="og:type" content="website">
-<meta property="og:title" content="📢 원광복지몰">
-<meta property="og:description" content="클릭하면 상품 구입페이지로 이동합니다.">
-<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260120235652.png?v=20260120235652">
-<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260120235652.png?v=20260120235652">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<title>📢 원광복지몰</title>
-<script>
-  function g(n){return new URL(location.href).searchParams.get(n)}
-  const FALLBACK = "https://3844mall.com/mcategory.php?category=1293";
-  const raw = g('u'); let TARGET = FALLBACK;
-  try{ if(raw) TARGET = decodeURIComponent(raw) }catch(e){}
-  const ua = navigator.userAgent.toLowerCase();
-  const isBot = /facebookexternalhit|twitterbot|naver|bot|crawl|spider/.test(ua);
-  const isKakaoInApp = /kakaotalk/.test(ua);
-  const isKakaoScraper = /kakaotalk.*(scrap|bot)/.test(ua);
-
-  window.addEventListener('DOMContentLoaded',()=>{
-    if(isBot || isKakaoScraper) return;
-    if(isKakaoInApp) return;
-    setTimeout(()=>location.replace(TARGET),200);
-  });
-</script>
-<style>
-  body{margin:0;min-height:100vh;display:grid;place-items:center;font-family:system-ui}
-  .card{max-width:560px;padding:24px;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.08);text-align:center}
-  img{max-width:100%;border-radius:12px;margin:0 0 12px}
-  a.button{display:inline-block;padding:12px 18px;border-radius:12px;background:#111;color:#fff;text-decoration:none}
-</style>
+  <meta charset="UTF-8" />
+  <title>📢 원광복지몰</title>
+  <meta property="og:title" content="📢 원광복지몰" />
+  <meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260121235905.png?v=20260121235905" />
+  <meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260121235905.png?v=20260121235905" />
+  <meta property="og:type" content="website" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const target = params.get('u') ? decodeURIComponent(params.get('u')) : "https://3844mall.com/mitem.php?item=250176";
+    setTimeout(() => {
+      if (!/facebookexternalhit|twitterbot|kakaotalk/i.test(navigator.userAgent)) {
+        window.location.href = target;
+      }
+    }, 200);
+  </script>
 </head>
-<body>
-  <div class="card">
-    <img src="thumb-20260120235652.png" alt="썸네일">
-    <p>카카오톡에서는 버튼을 눌러 이동하세요.</p>
-    <a class="button" href="https://3844mall.com/mcategory.php?category=1293">👉 상품 페이지로 이동</a>
-  </div>
+<body style="font-family:Arial,sans-serif;text-align:center;padding:20px;">
+  <img src="thumb-20260121235905.png" alt="thumbnail" style="max-width:100%;height:auto;" />
+  <p><a href="https://3844mall.com/mitem.php?item=250176">👉 바로 이동</a></p>
 </body>
 </html>
