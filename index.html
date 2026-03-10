@@ -6,8 +6,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="📢 원광복지몰">
 <meta property="og:description" content="클릭하면 상품 구입페이지로 이동합니다.">
-<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/v/20260310005327/thumb.png?v=20260310005327">
-<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/v/20260310005327/thumb.png?v=20260310005327">
+<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260310010055.png?v=20260310010055">
+<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260310010055.png?v=20260310010055">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -23,14 +23,17 @@ const isKakaoInApp=/kakaotalk/i.test(ua);
 const isBot=/facebookexternalhit|twitterbot|naver|bot|crawl|spider/i.test(ua);
 const isKakaoScraper=/kakaotalk.*(scrap|bot)/i.test(ua);
 
-document.addEventListener("DOMContentLoaded", function(){
-  const btn = document.getElementById("goBtn");
-  btn.href = TARGET;
+document.addEventListener("DOMContentLoaded",function(){
 
-  if (isBot || isKakaoScraper) return;
-  if (isKakaoInApp) return;
+ const btn=document.getElementById("goBtn");
+ btn.href=TARGET;
 
-  setTimeout(function(){ location.replace(TARGET); }, 200);
+ if(isBot||isKakaoScraper) return;
+
+ if(!isKakaoInApp){
+   setTimeout(function(){location.replace(TARGET)},200);
+ }
+
 });
 </script>
 <style>
@@ -43,9 +46,9 @@ img{max-width:100%;border-radius:12px;margin:0 0 12px}
 </head>
 <body>
 <div class="card">
-  <img src="thumb.png" alt="썸네일">
-  <p class="notice">카카오톡에서는 자동 이동이 되지 않습니다.<br>아래 버튼을 눌러 상품 페이지로 이동해주세요.</p>
-  <a id="goBtn" class="button" href="https://3844mall.com/mitem.php?item=194318">👉 상품 페이지로 이동</a>
+<img src="thumb-20260310010055.png" alt="썸네일">
+<p class="notice">카카오톡에서는 자동 이동이 되지 않습니다.<br>아래 버튼을 눌러 상품 페이지로 이동해주세요.</p>
+<a id="goBtn" class="button" href="https://3844mall.com/mitem.php?item=194318">👉 상품 페이지로 이동</a>
 </div>
 </body>
 </html>
