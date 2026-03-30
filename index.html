@@ -6,8 +6,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="📢 원광복지몰">
 <meta property="og:description" content="클릭하면 상품 구입페이지로 이동합니다.">
-<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260330014149.png?v=20260330014149">
-<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260330014149.png?v=20260330014149">
+<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260330014532.png?v=20260330014532">
+<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260330014532.png?v=20260330014532">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -67,15 +67,7 @@
   }
 </style>
 <script>
-  function g(n) { return new URL(location.href).searchParams.get(n); }
-
-  const FALLBACK_URL = 'https://3844gift.com';
-  const raw = g('u');
-  let TARGET = FALLBACK_URL;
-
-  try {
-    if (raw) TARGET = decodeURIComponent(raw);
-  } catch (e) {}
+  const TARGET = 'https://3844gift.com';
 
   const ua = navigator.userAgent || "";
   const isKakaoInApp = /kakaotalk/i.test(ua);
@@ -85,6 +77,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     const btn = document.getElementById('moveBtn');
     const msg = document.getElementById('msg');
+
     btn.setAttribute('href', TARGET);
 
     if (isBot || isKakaoScraper) {
@@ -107,9 +100,9 @@
 <body>
   <div class="wrap">
     <div class="card">
-      <img src="thumb-20260330014149.png" alt="썸네일">
+      <img src="thumb-20260330014532.png" alt="썸네일">
       <p id="msg">페이지를 준비하고 있습니다.</p>
-      <a id="moveBtn" class="button" href="https://3844gift.com">👉 상품 페이지로 이동</a>
+      <a id="moveBtn" class="button" href="https://3844gift.com" rel="noopener noreferrer">👉 상품 페이지로 이동</a>
       <div class="sub">자동 이동이 되지 않으면 버튼을 눌러주세요.</div>
     </div>
   </div>
