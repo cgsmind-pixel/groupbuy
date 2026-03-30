@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="📢 원광복지몰">
-<meta property="og:description" content="클릭하면 상품 구입페이지로 이동합니다.">
-<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260330014532.png?v=20260330014532">
-<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260330014532.png?v=20260330014532">
+<meta property="og:description" content="버튼을 눌러 상품 페이지로 이동하세요.">
+<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260330014956.png?v=20260330014956">
+<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260330014956.png?v=20260330014956">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -66,44 +66,14 @@
     color: #666;
   }
 </style>
-<script>
-  const TARGET = 'https://3844gift.com';
-
-  const ua = navigator.userAgent || "";
-  const isKakaoInApp = /kakaotalk/i.test(ua);
-  const isBot = /facebookexternalhit|twitterbot|naver|bot|crawl|spider/i.test(ua);
-  const isKakaoScraper = /kakaotalk.*(scrap|bot)/i.test(ua);
-
-  document.addEventListener('DOMContentLoaded', function () {
-    const btn = document.getElementById('moveBtn');
-    const msg = document.getElementById('msg');
-
-    btn.setAttribute('href', TARGET);
-
-    if (isBot || isKakaoScraper) {
-      msg.textContent = "미리보기 수집용 페이지입니다.";
-      return;
-    }
-
-    if (isKakaoInApp) {
-      msg.textContent = "카카오톡에서는 아래 버튼을 눌러 상품 페이지로 이동해주세요.";
-      return;
-    }
-
-    msg.textContent = "잠시 후 상품 페이지로 자동 이동합니다.";
-    setTimeout(function () {
-      window.location.href = TARGET;
-    }, 200);
-  });
-</script>
 </head>
 <body>
   <div class="wrap">
     <div class="card">
-      <img src="thumb-20260330014532.png" alt="썸네일">
-      <p id="msg">페이지를 준비하고 있습니다.</p>
-      <a id="moveBtn" class="button" href="https://3844gift.com" rel="noopener noreferrer">👉 상품 페이지로 이동</a>
-      <div class="sub">자동 이동이 되지 않으면 버튼을 눌러주세요.</div>
+      <img src="thumb-20260330014956.png" alt="썸네일">
+      <p>카카오톡에서는 아래 버튼을 눌러 상품 페이지로 이동해주세요.</p>
+      <a class="button" href="https://3844gift.com" rel="noopener noreferrer">👉 상품 페이지로 이동</a>
+      <div class="sub">자동 이동 없이, 가장 단순한 직접 링크 방식입니다.</div>
     </div>
   </div>
 </body>
