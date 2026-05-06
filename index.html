@@ -6,39 +6,117 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="📢 원광복지몰">
 <meta property="og:description" content="클릭하면 상품 구입페이지로 이동합니다.">
-<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260430011158.png?v=20260430011158">
-<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260430011158.png?v=20260430011158">
+<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260506000434.png?v=20260506000434">
+<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260506000434.png?v=20260506000434">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <title>📢 원광복지몰</title>
+
 <script>
-  function g(n){return new URL(location.href).searchParams.get(n)}
-  const FALLBACK = "https://3844mall.com/mitem.php?item=252972";
-  const raw = g('u'); let TARGET = FALLBACK;
-  try{ if(raw) TARGET = decodeURIComponent(raw) }catch(e){}
+function g(n){return new URL(location.href).searchParams.get(n)}
 
-  const ua = navigator.userAgent.toLowerCase();
-  const isKakaoInApp = /kakaotalk/i.test(ua);
-  const isBot = /facebookexternalhit|twitterbot|naver|bot|crawl|spider/i.test(ua);
-  const isKakaoScraper = /kakaotalk.*(scrap|bot)/i.test(ua);
+const FALLBACK = "https://3844mall.com/mitem.php?item=222012";
+const raw = g('u');
+let TARGET = FALLBACK;
 
-  if(!(isBot || isKakaoScraper || isKakaoInApp)){
-    window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>location.replace(TARGET),200));
-  }
+try {
+  if(raw) TARGET = decodeURIComponent(raw)
+} catch(e) {}
+
+const ua = navigator.userAgent || "";
+
+const isKakaoInApp = /kakaotalk/i.test(ua);
+const isBot = /facebookexternalhit|twitterbot|naver|bot|crawl|spider/i.test(ua);
+const isKakaoScraper = /kakaotalk.*(scrap|bot)/i.test(ua);
+
+if (!isBot && !isKakaoScraper && !isKakaoInApp) {
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => location.replace(TARGET), 200);
+  });
+}
+
+window.__TARGET__ = TARGET;
+window.__SHOW_BUTTON_ONLY__ = isKakaoInApp;
 </script>
+
 <style>
-  body{margin:0;min-height:100vh;display:grid;place-items:center;font-family:system-ui,-apple-system,Segoe UI,Roboto}
-  .card{max-width:560px;padding:24px;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.08);text-align:center}
-  img{max-width:100%;border-radius:12px;margin:0 0 12px}
-  a.button{display:inline-block;padding:12px 18px;border-radius:12px;background:#111;color:#fff;text-decoration:none}
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f5f5f5;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+}
+
+.card{
+  width:min(92vw,560px);
+  background:#fff;
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+  text-align:center;
+}
+
+img{
+  width:100%;
+  border-radius:14px;
+  margin-bottom:14px;
+}
+
+.msg{
+  color:#333;
+  line-height:1.6;
+  margin-bottom:16px;
+}
+
+.button{
+  display:inline-block;
+  padding:14px 22px;
+  border-radius:14px;
+  background:#111;
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.small{
+  margin-top:12px;
+  color:#777;
+  font-size:14px;
+}
 </style>
 </head>
+
 <body>
-  <div class="card">
-    <img src="thumb-20260430011158.png" alt="썸네일">
-    <p>카카오톡에서는 아래 버튼을 눌러 이동해주세요.</p>
-    <a class="button" href="https://3844mall.com/mitem.php?item=252972">👉 상품 페이지로 이동</a>
+<div class="card">
+  <img src="thumb-20260506000434.png" alt="썸네일">
+
+  <div class="msg" id="msg">
+    잠시 후 상품 페이지로 이동합니다.
   </div>
+
+  <a class="button" id="goBtn" href="https://3844mall.com/mitem.php?item=222012">
+    👉 상품 페이지로 이동
+  </a>
+
+  <div class="small">
+    이동이 되지 않으면 버튼을 눌러주세요.
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('goBtn');
+  btn.href = window.__TARGET__;
+
+  if(window.__SHOW_BUTTON_ONLY__) {
+    document.getElementById('msg').innerHTML =
+      "카카오톡에서는 버튼을 눌러 상품 페이지로 이동해주세요.";
+  }
+});
+</script>
 </body>
 </html>
