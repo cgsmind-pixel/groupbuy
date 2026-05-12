@@ -6,38 +6,12 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="📢 원광복지몰">
 <meta property="og:description" content="클릭하면 상품 구입페이지로 이동합니다.">
-<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260511004434.png?v=20260511004434">
-<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260511004434.png?v=20260511004434">
+<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260512020312.png?v=20260512020312">
+<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260512020312.png?v=20260512020312">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <title>📢 원광복지몰</title>
-
-<script>
-function g(n){return new URL(location.href).searchParams.get(n)}
-
-const FALLBACK = "https://3844mall.com/mitem.php?item=264366";
-const raw = g('u');
-let TARGET = FALLBACK;
-
-try {
-  if(raw) TARGET = decodeURIComponent(raw)
-} catch(e){}
-
-const ua = navigator.userAgent;
-
-const isKakaoInApp = /kakaotalk/i.test(ua);
-const isBot = /facebookexternalhit|twitterbot|naver|bot|crawl|spider/i.test(ua);
-const isKakaoScraper = /kakaotalk.*(scrap|bot)/i.test(ua);
-
-if(!isBot && !isKakaoScraper && !isKakaoInApp){
-  window.addEventListener('DOMContentLoaded', function(){
-    setTimeout(function(){
-      location.replace(TARGET);
-    }, 200);
-  });
-}
-</script>
 
 <style>
 body{
@@ -46,54 +20,76 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#f5f5f5;
+  background:#f7f7f7;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
 }
-
 .card{
-  width:min(92vw,560px);
+  max-width:560px;
   background:#fff;
   padding:24px;
-  border-radius:20px;
+  border-radius:18px;
   box-shadow:0 8px 24px rgba(0,0,0,.08);
   text-align:center;
 }
-
 img{
-  width:100%;
-  border-radius:14px;
+  max-width:100%;
+  border-radius:12px;
   margin-bottom:16px;
 }
-
-p{
-  font-size:16px;
-  line-height:1.5;
-  color:#333;
-  margin:0 0 18px;
-}
-
 .button{
   display:inline-block;
-  padding:14px 20px;
-  border-radius:14px;
+  padding:14px 22px;
+  border-radius:12px;
   background:#111;
   color:#fff;
   text-decoration:none;
   font-weight:700;
 }
+p{line-height:1.6}
 </style>
+
+<script>
+function g(n){return new URL(location.href).searchParams.get(n)}
+
+const FALLBACK = "https://3844mall.com/mitem.php?item=230875";
+const raw = g('u');
+let TARGET = FALLBACK;
+
+try {
+  if(raw) TARGET = decodeURIComponent(raw)
+} catch(e) {}
+
+const ua = navigator.userAgent || "";
+
+const isKakaoInApp = /kakaotalk/i.test(ua);
+const isBot = /facebookexternalhit|twitterbot|naver|bot|crawl|spider/i.test(ua);
+const isKakaoScraper = /kakaotalk.*(scrap|bot)/i.test(ua);
+
+if(!isBot && !isKakaoScraper && !isKakaoInApp){
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      location.replace(TARGET);
+    }, 200);
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('moveBtn');
+  btn.href = TARGET;
+});
+</script>
 </head>
 
 <body>
-<div class="card">
-  <img src="thumb-20260511004434.png" alt="썸네일">
-  <p>
-    카카오톡에서는 자동 이동이 제한됩니다.<br>
-    아래 버튼을 눌러 상품 페이지로 이동해주세요.
-  </p>
-  <a class="button" href="https://3844mall.com/mitem.php?item=264366">
-    👉 상품 페이지로 이동
-  </a>
-</div>
+  <div class="card">
+    <img src="thumb-20260512020312.png" alt="썸네일">
+    <p id="guide">
+      카카오톡에서는 자동 이동이 제한될 수 있습니다.<br>
+      아래 버튼을 눌러 상품 페이지로 이동해주세요.
+    </p>
+    <a id="moveBtn" class="button" href="https://3844mall.com/mitem.php?item=230875">
+      👉 상품 페이지로 이동
+    </a>
+  </div>
 </body>
 </html>
