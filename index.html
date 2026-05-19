@@ -6,8 +6,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="📢 원광복지몰">
 <meta property="og:description" content="클릭하면 상품 구입페이지로 이동합니다.">
-<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260518005419.png?v=20260518005419">
-<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260518005419.png?v=20260518005419">
+<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260519005200.png?v=20260519005200">
+<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260519005200.png?v=20260519005200">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -15,107 +15,48 @@
 
 <script>
 function g(n){return new URL(location.href).searchParams.get(n)}
+const FALLBACK = "https://3844mall.com/mitem.php?item=264912";
+const raw = g('u'); let TARGET = FALLBACK;
+try{ if(raw) TARGET = decodeURIComponent(raw) }catch(e){}
 
-const FALLBACK = "https://3844mall.com/mitem.php?item=107857";
-const raw = g('u');
-let TARGET = FALLBACK;
-
-try {
-  if(raw) TARGET = decodeURIComponent(raw);
-} catch(e){}
-
-const ua = navigator.userAgent || "";
-
+const ua = navigator.userAgent;
 const isKakaoInApp = /kakaotalk/i.test(ua);
 const isBot = /facebookexternalhit|twitterbot|naver|bot|crawl|spider/i.test(ua);
 const isKakaoScraper = /kakaotalk.*(scrap|bot)/i.test(ua);
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded',()=>{
+  const btn = document.getElementById('moveBtn');
+  btn.href = TARGET;
 
-  const button = document.getElementById('moveBtn');
-  button.href = TARGET;
-
-  if(isBot || isKakaoScraper) {
+  if(isBot || isKakaoScraper){
     return;
   }
 
-  if(isKakaoInApp) {
-    document.getElementById('guide').style.display = 'block';
+  if(isKakaoInApp){
+    document.getElementById('guide').style.display='block';
     return;
   }
 
-  setTimeout(() => {
-    location.replace(TARGET);
-  }, 200);
-
+  setTimeout(()=>location.replace(TARGET),200);
 });
 </script>
 
 <style>
-body {
-  margin:0;
-  min-height:100vh;
-  display:grid;
-  place-items:center;
-  background:#f8f8f8;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-}
-
-.card {
-  width:min(92vw,560px);
-  background:#fff;
-  padding:24px;
-  border-radius:20px;
-  box-shadow:0 8px 24px rgba(0,0,0,.08);
-  text-align:center;
-}
-
-img {
-  width:100%;
-  border-radius:14px;
-  margin-bottom:16px;
-}
-
-h2 {
-  margin:0 0 10px;
-  font-size:22px;
-}
-
-p {
-  color:#555;
-  line-height:1.6;
-}
-
-.button {
-  display:inline-block;
-  margin-top:14px;
-  padding:14px 22px;
-  border-radius:14px;
-  background:#111;
-  color:#fff;
-  text-decoration:none;
-  font-weight:700;
-}
-
-#guide {
-  display:none;
-}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:center;background:#f5f5f5;font-family:system-ui,-apple-system,Segoe UI,Roboto}
+.card{max-width:560px;background:#fff;padding:24px;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.08);text-align:center}
+img{max-width:100%;border-radius:12px;margin-bottom:14px}
+.button{display:inline-block;padding:14px 20px;border-radius:12px;background:#111;color:#fff;text-decoration:none;font-weight:700}
+#guide{display:none;color:#444;margin:10px 0 16px;line-height:1.5}
 </style>
 </head>
-
 <body>
 <div class="card">
-  <img src="thumb-20260518005419.png" alt="썸네일">
+  <img src="thumb-20260519005200.png" alt="썸네일">
   <div id="guide">
-    <h2>📢 원광복지몰</h2>
-    <p>카카오톡에서는 자동 이동이 제한됩니다.<br>아래 버튼을 눌러 상품 페이지로 이동해주세요.</p>
+    카카오톡에서는 자동 이동이 지원되지 않습니다.<br>
+    아래 버튼을 눌러 상품 페이지로 이동해주세요.
   </div>
-
-  <p>잠시 후 상품 페이지로 이동합니다.</p>
-
-  <a id="moveBtn" class="button" href="https://3844mall.com/mitem.php?item=107857">
-    👉 상품 페이지로 이동
-  </a>
+  <a id="moveBtn" class="button" href="https://3844mall.com/mitem.php?item=264912">👉 상품 페이지로 이동</a>
 </div>
 </body>
 </html>
