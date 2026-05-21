@@ -6,100 +6,54 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="📢 원광복지몰">
 <meta property="og:description" content="클릭하면 상품 구입페이지로 이동합니다.">
-<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260520013008.png?v=20260520013008">
-<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260520013008.png?v=20260520013008">
+<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260521012053.png?v=20260521012053">
+<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260521012053.png?v=20260521012053">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <title>📢 원광복지몰</title>
-
+<style>
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f5f5f5;font-family:sans-serif}
+.card{width:min(92vw,560px);background:#fff;border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.08);text-align:center}
+img{width:100%;border-radius:14px;margin-bottom:18px}
+.button{display:inline-block;padding:14px 22px;border-radius:14px;background:#111;color:#fff;text-decoration:none;font-weight:700}
+</style>
 <script>
 function g(n){return new URL(location.href).searchParams.get(n)}
-
-const FALLBACK = "https://3844mall.com/mitem.php?item=260037";
-const raw = g('u');
-let TARGET = FALLBACK;
+const FALLBACK_URL="https://3844mall.com/mitem.php?item=134931";
+const raw=g('u');
+let TARGET=FALLBACK_URL;
 
 try {
-  if(raw) TARGET = decodeURIComponent(raw)
+ if(raw) TARGET=decodeURIComponent(raw);
 } catch(e) {}
 
-const ua = navigator.userAgent;
+const ua=navigator.userAgent||"";
+const isKakaoInApp=/kakaotalk/i.test(ua);
+const isBot=/facebookexternalhit|twitterbot|naver|bot|crawl|spider/i.test(ua);
+const isKakaoScraper=/kakaotalk.*(scrap|bot)/i.test(ua);
 
-const isKakaoInApp = /kakaotalk/i.test(ua);
-const isBot = /facebookexternalhit|twitterbot|naver|bot|crawl|spider/i.test(ua);
-const isKakaoScraper = /kakaotalk.*(scrap|bot)/i.test(ua);
+window.addEventListener('DOMContentLoaded',()=>{
+ const btn=document.getElementById('moveBtn');
+ btn.href=TARGET;
 
-window.addEventListener('DOMContentLoaded', () => {
+ if(isBot || isKakaoScraper) return;
 
-  if(isBot || isKakaoScraper) {
-    return;
-  }
+ if(isKakaoInApp){
+   document.getElementById('guide').innerText="카카오톡에서는 아래 버튼을 눌러 상품 페이지로 이동해주세요.";
+   return;
+ }
 
-  const btn = document.getElementById('goBtn');
-  btn.href = TARGET;
-
-  if(isKakaoInApp) {
-    document.getElementById('guide').style.display = 'block';
-    return;
-  }
-
-  setTimeout(() => {
-    location.replace(TARGET);
-  }, 200);
-
+ setTimeout(()=>location.replace(TARGET),200);
 });
 </script>
-
-<style>
-body{
-  margin:0;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#f7f7f7;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-}
-.card{
-  width:min(92vw,560px);
-  background:#fff;
-  border-radius:20px;
-  padding:20px;
-  text-align:center;
-  box-shadow:0 8px 24px rgba(0,0,0,.08);
-}
-img{
-  width:100%;
-  border-radius:14px;
-}
-p{
-  color:#333;
-  line-height:1.6;
-}
-.button{
-  display:inline-block;
-  margin-top:10px;
-  padding:14px 22px;
-  border-radius:14px;
-  background:#111;
-  color:#fff;
-  text-decoration:none;
-  font-weight:700;
-}
-#guide {
-  display:none;
-}
-</style>
 </head>
 <body>
 <div class="card">
-  <img src="thumb-20260520013008.png" alt="썸네일">
-  <div id="guide">
-    <p>카카오톡에서는 자동 이동이 제한됩니다.<br>아래 버튼을 눌러 상품 페이지로 이동해주세요.</p>
-  </div>
-  <p>잠시 후 상품 페이지로 이동합니다.</p>
-  <a id="goBtn" class="button" href="https://3844mall.com/mitem.php?item=260037">👉 상품 페이지로 이동</a>
+<img src="thumb-20260521012053.png" alt="썸네일">
+<h2>📢 원광복지몰</h2>
+<p id="guide">잠시 후 상품 페이지로 이동합니다.</p>
+<a id="moveBtn" class="button" href="https://3844mall.com/mitem.php?item=134931">👉 상품 페이지로 이동</a>
 </div>
 </body>
 </html>
