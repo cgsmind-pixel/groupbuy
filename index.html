@@ -6,8 +6,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="📢 원광복지몰">
 <meta property="og:description" content="클릭하면 상품 구입페이지로 이동합니다.">
-<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260617003146.png?v=20260617003146">
-<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260617003146.png?v=20260617003146">
+<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/v/20260617003531/thumb.png?v=20260617003531">
+<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/v/20260617003531/thumb.png?v=20260617003531">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -26,8 +26,14 @@ const isKakaoScraper=/kakaotalk.*(scrap|bot)/i.test(ua);
 window.addEventListener("DOMContentLoaded",()=>{
   const btn=document.getElementById("goBtn");
   btn.href=TARGET;
+
   if(isBot || isKakaoScraper) return;
-  if(isKakaoInApp) return;
+
+  if(isKakaoInApp){
+    document.getElementById("guide").style.display="block";
+    return;
+  }
+
   setTimeout(()=>location.replace(TARGET),200);
 });
 </script>
@@ -41,8 +47,8 @@ p{font-size:16px;line-height:1.5;margin:0 0 14px}
 </head>
 <body>
 <div class="card">
-<img src="thumb-20260617003146.png" alt="썸네일">
-<p>카카오톡에서는 아래 버튼을 눌러 상품 페이지로 이동하세요.</p>
+<img src="thumb.png" alt="썸네일">
+<p id="guide">카카오톡에서는 아래 버튼을 눌러 상품 페이지로 이동하세요.</p>
 <a id="goBtn" class="button" href="https://3844mall.com/mitem.php?item=262730">👉 상품 페이지로 이동</a>
 </div>
 </body>
