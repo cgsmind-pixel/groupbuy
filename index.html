@@ -3,27 +3,27 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="📢 원광복지몰">
 <meta property="og:description" content="클릭하면 상품 구입페이지로 이동합니다.">
-<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260629015402.png?v=20260629015402">
-<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260629015402.png?v=20260629015402">
+<meta property="og:image" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260629232204.png?v=20260629232204">
+<meta property="og:image:secure_url" content="https://cgsmind-pixel.github.io/groupbuy/thumb-20260629232204.png?v=20260629232204">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><title>📢 원광복지몰</title>
 <script>
 function g(n){return new URL(location.href).searchParams.get(n)}
-const FALLBACK="https://3844mall.com/mitem.php?item=261777";
-const raw=g('u'); let TARGET=FALLBACK;
-try{if(raw)TARGET=decodeURIComponent(raw)}catch(e){}
+const FALLBACK="https://3844mall.com/mitem.php?item=143507";
+const raw=g('u');let TARGET=FALLBACK;try{if(raw)TARGET=decodeURIComponent(raw)}catch(e){}
 const ua=navigator.userAgent;
-const isKakao=/kakaotalk/i.test(ua);
+const isKakaoInApp=/kakaotalk/i.test(ua);
 const isBot=/facebookexternalhit|twitterbot|naver|bot|crawl|spider/i.test(ua);
 const isKakaoScraper=/kakaotalk.*(scrap|bot)/i.test(ua);
 window.addEventListener('DOMContentLoaded',()=>{
-const b=document.getElementById('btn'); b.href=TARGET;
+const b=document.getElementById('go');b.href=TARGET;
 if(isBot||isKakaoScraper)return;
-if(isKakao){document.getElementById('info').style.display='block';}
-else setTimeout(()=>location.replace(TARGET),200);
+if(!isKakaoInApp)setTimeout(()=>location.replace(TARGET),200);
+else document.getElementById('msg').style.display='block';
 });
-</script></head><body style="font-family:sans-serif;text-align:center">
-<div id="info" style="display:none">
-<img src="thumb-20260629015402.png" style="max-width:100%"><p>카카오톡에서는 아래 버튼을 눌러 이동하세요.</p>
-<a id="btn" href="https://3844mall.com/mitem.php?item=261777">👉 상품 페이지로 이동</a></div>
-<img src="thumb-20260629015402.png" style="max-width:100%"><noscript><a href="https://3844mall.com/mitem.php?item=261777">이동</a></noscript>
+</script></head><body style="font-family:sans-serif;text-align:center;padding:20px">
+<img src="thumb-20260629232204.png" style="max-width:100%;border-radius:12px">
+<div id="msg" style="display:none"><p>카카오톡에서는 버튼을 눌러 이동해주세요.</p></div>
+<p>잠시 후 상품 페이지로 이동합니다.</p>
+<a id="go" href="https://3844mall.com/mitem.php?item=143507" style="display:inline-block;padding:12px 18px;background:#111;color:#fff;text-decoration:none;border-radius:10px">👉 상품 페이지로 이동</a>
 </body></html>
